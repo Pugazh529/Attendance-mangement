@@ -1,5 +1,5 @@
 import React, { useState ,useContext } from 'react'
-import { AuthContext } from './AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 
 function Login({ IsLoggedIn }) {
 

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import {BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import Login from './Login'
-import Attendance from './Attendance'
+import Login from './components/Login/Login'
+import Attendance from './components/Attendance/Attendance'
 import { useState } from 'react'
-import { AuthContext } from './AuthContext'
+import { AuthContext } from './context/AuthContext'
 
 
 function App() {
