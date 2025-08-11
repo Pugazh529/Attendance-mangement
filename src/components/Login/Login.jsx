@@ -1,9 +1,10 @@
-import React, { useState ,useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 
-function Login({ IsLoggedIn }) {
+function Login() {
 
-    const {login} = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
+
   const [name, setName] = useState('');
   const [pass, setPass] = useState('');
   const [err, setErr] = useState('');
@@ -12,12 +13,11 @@ function Login({ IsLoggedIn }) {
     e.preventDefault()
     let user = JSON.parse(localStorage.getItem('user'));
 
-  // console.log(name);
-    if(user && user.username == name && user.password == pass){
-        login();
-        localStorage.setItem('IsLoggin', 'true');      
+    // console.log(name);
+    if (user && user.username == name && user.password == pass) {
+      login();
     }
-    else{
+    else {
       setErr('Invalid Username or password')
     }
 

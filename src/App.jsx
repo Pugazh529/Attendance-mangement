@@ -9,9 +9,7 @@ import { AuthContext } from './context/AuthContext'
 function App() {
     
         const {isLogin} =useContext(AuthContext);
-        // console.log(isLogin);
 
-        
     useEffect(()=>{
         localStorage.setItem('user',JSON.stringify({username:'Pugazh',password:'1234'}));
     },[])
