@@ -16,7 +16,7 @@ function Sidebar() {
     };
   return (
     <div className='d-flex flex-column justify-content-evenly m-3' style={{cursor:'pointer'}}>
-      <div><h1>Employee Detalis</h1></div>
+      <div><h2>Employee Detalis</h2></div>
       <div className='mt-3'><i className="bi bi-person-square"></i> Profile</div>
       <div className='mt-3'><i className="bi bi-gift"></i>Attendance</div>
       <div onClick={handleLogout} className='mt-3'><i className="bi bi-box-arrow-left"></i> LogOut</div>

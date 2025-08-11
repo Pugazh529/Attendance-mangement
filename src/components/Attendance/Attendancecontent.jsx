@@ -72,11 +72,11 @@ const attendanceRecords = [
 
             <div className='m-5' style={{ textAlign: "center" }}>
                 <h2>Employee Attendance</h2>
-                <table border="1" style={{ margin: "auto" }}>
+                <table className='table' style={{ margin: "auto" }}>
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>Status</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -8,9 +8,9 @@ function Attendance() {
 
   return (
     <div className='d-flex vh-100'>
-      <div className='bg-info w-25'><Sidebar/></div>
-      <div className='bg-danger w-50'><Attendancecontent/></div>
-      <div className='bg-primary w-25 '>Profile</div>
+      <div className='bg-info w-20'><Sidebar/></div>
+      <div className=' w-50'><Attendancecontent/></div>
+      <div className='w-30 profile'>Profile</div>
     </div>
 
   );
