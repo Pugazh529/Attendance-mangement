@@ -91,7 +91,7 @@ function Attendancecontent() {
           role,
           status: "Present",
           checkIn: currentTime,
-          checkOut:''
+          checkOut: ''
         },
         ...filter
       ];
@@ -109,11 +109,24 @@ function Attendancecontent() {
     const employeeName = "Pugazh";
     const department = "Engineering";
     const role = "Frontend Developer";
-    setCheckOut(true);
-    const index = attendanceRecords.findIndex((item) => item.date = todayDate);
+    
 
-  
-    setAttendanceRecords((prev) => prev[index],{ checkOut : currentTime})
+
+
+    setAttendanceRecords((prev) => {
+
+      const index = prev.findIndex((item) => item.date === todayDate);
+
+      if (index === -1) return prev;
+
+      const updatedrecord = [...prev];
+      updatedrecord[index] = {
+        ...updatedrecord[index], checkOut: currentTime,
+      }
+      setCheckOut(true);
+      return updatedrecord;
+
+    })
 
   }
 
