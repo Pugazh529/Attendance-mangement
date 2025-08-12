@@ -104,15 +104,7 @@ function Attendancecontent() {
     const now = new Date();
     const todayDate = now.toISOString().split("T")[0]; // YYYY-MM-DD
     const currentTime = now.toTimeString().slice(0, 5); // HH:MM
-
-    const employeeId = "EMP001"; // example: logged-in employee
-    const employeeName = "Pugazh";
-    const department = "Engineering";
-    const role = "Frontend Developer";
     
-
-
-
     setAttendanceRecords((prev) => {
 
       const index = prev.findIndex((item) => item.date === todayDate);
