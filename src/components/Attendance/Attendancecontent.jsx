@@ -77,53 +77,80 @@ function Attendancecontent() {
     const role = "Frontend Developer";
     setCheckIn(true);
 
-    setAttendanceRecords((prev) => [...prev, {
-      date: todayDate,
-      employeeId,
-      name: employeeName,
-      department,
-      role,
-      status: "Present",
-      checkIn: currentTime
-    }])
+
+
+    setAttendanceRecords((prev) => {
+      const filter = prev.filter((item) => item.date !== todayDate)
+
+      return [
+        {
+          date: todayDate,
+          employeeId,
+          name: employeeName,
+          department,
+          role,
+          status: "Present",
+          checkIn: currentTime,
+          checkOut:''
+        },
+        ...filter
+      ];
+    });
+
 
   }
 
+  const CheckOut = () => {
+    const now = new Date();
+    const todayDate = now.toISOString().split("T")[0]; // YYYY-MM-DD
+    const currentTime = now.toTimeString().slice(0, 5); // HH:MM
 
-return (
-  <div className="container">
-    <div className="m-3 d-flex  justify-content-between">
-      <button className='btn btn-primary' disabled={disablecheckIn} onClick={() => CheckIn()}>Check In</button>
-      <button className='btn btn-danger' disabled={disablecheckOut}>Check Out</button>
-    </div>
-    <div className='m-5' style={{ textAlign: "center" }}>
-      <h2>Employee Attendance</h2>
-      <table className='table' style={{ margin: "auto" }}>
-        <thead>
-          <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Status</th>
-            <th scope="col">Check In</th>
-            <th scope="col">Check Out</th>
-          </tr>
-        </thead>
-        <tbody>
-          {attendanceRecords.map((row, index) => (
-            <tr key={index}>
-              <td>{row.date}</td>
-              <td>{row.status}</td>
-              <td>{row.checkIn}</td>
-              <td>{row.checkOut}</td>
+    const employeeId = "EMP001"; // example: logged-in employee
+    const employeeName = "Pugazh";
+    const department = "Engineering";
+    const role = "Frontend Developer";
+    setCheckOut(true);
+    const index = attendanceRecords.findIndex((item) => item.date = todayDate);
+
+  
+    setAttendanceRecords((prev) => prev[index],{ checkOut : currentTime})
+
+  }
+
+  return (
+    <div className="container">
+      <div className="m-3 d-flex  justify-content-between">
+        <button className='btn btn-primary' disabled={disablecheckIn} onClick={() => CheckIn()}>Check In</button>
+        <button className='btn btn-danger' disabled={disablecheckOut} onClick={() => CheckOut()}>Check Out</button>
+      </div>
+      <div className='m-5' style={{ textAlign: "center" }}>
+        <h2>Employee Attendance</h2>
+        <table className='table' style={{ margin: "auto" }}>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Status</th>
+              <th scope="col">Check In</th>
+              <th scope="col">Check Out</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <br />
+          </thead>
+          <tbody>
+            {attendanceRecords.map((row, index) => (
+              <tr key={index}>
+                <td>{row.date}</td>
+                <td>{row.status}</td>
+                <td>{row.checkIn}</td>
+                <td>{row.checkOut}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <br />
 
-    </div>
+      </div>
 
-  </div>
-)
+    </div >
+  )
 }
 
 export default Attendancecontent
